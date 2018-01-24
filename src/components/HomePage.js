@@ -7,11 +7,11 @@ import {connect} from "react-redux";
 
 class HomePage extends  Component{
 
+   componentWillMount(){
 
-  componentWillMount(){
+       this.props.authenticate()
+   }
 
-    this.props.authenticate()
-  }
 
   render(){
   return (

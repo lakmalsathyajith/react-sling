@@ -3,29 +3,32 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/webActions';
 
-const AppListItem= (props) =>{
+const LogEntry = (props) =>{
 
     return (
         <div>
-            <div>{props.item.app_name}</div>
-            {(props.item.logo_url)?<img src={props.item.logo_url} />: null }
+            <ul>
+                <li>{props.item.ip_address}</li>
+                <li>{props.item.location}</li>
+                <li>{props.item.date}</li>
+            </ul>
         </div>
     )
 }
 
 
-class AppList extends React.Component {
+class Logs extends React.Component {
 
     render() {
 
-        let {appList} = this.props;
+        let {logs} = this.props;
 
         return (
             <div>
-                { appList &&  appList.map((listItem,i) =>{
+                { logs &&  logs.map((listItem,i) =>{
 
-                        return <AppListItem key={i} item={listItem}/>
-                    })
+                    return <LogEntry key={i} item={listItem}/>
+                })
                 }
             </div>
         );
@@ -35,7 +38,7 @@ class AppList extends React.Component {
 
 const mapStateToProps = (state)=>{
     return {
-        appList: state.webAppReducer.appList.apps
+        logs: state.webAppReducer.logs.logs
     };
 }
 
@@ -48,4 +51,4 @@ const mapDispatchToProps = (dispatch)=> {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(AppList);
+)(Logs);
