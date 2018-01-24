@@ -31,6 +31,9 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "axios": "0.17.1",
+    "install": "0.10.4",
+    "npm": "5.6.0",
     "object-assign": "4.1.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",

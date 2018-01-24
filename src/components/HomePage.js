@@ -1,7 +1,19 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
+import {bindActionCreators} from "redux";
+import {authenticate} from "../actions/loginAction";
+import {FuelSavingsPage} from "./containers/FuelSavingsPage";
+import {connect} from "react-redux";
 
-const HomePage = () => {
+class HomePage extends  Component{
+
+
+  componentWillMount(){
+
+    this.props.authenticate()
+  }
+
+  render(){
   return (
     <div>
       <h1>React Slingshot</h1>
@@ -13,6 +25,24 @@ const HomePage = () => {
       </ol>
     </div>
   );
-};
+  }
+}
 
-export default HomePage;
+const mapStateToProps =(state) => {
+  return {
+    fuelSavings: state.fuelSavings
+  };
+}
+
+const mapDispatchToProps =(dispatch) => {
+
+  return bindActionCreators({
+    authenticate
+  }, dispatch);
+
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);
