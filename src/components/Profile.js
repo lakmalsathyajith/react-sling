@@ -1,9 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from '../actions/webActions';
+import {getProfile} from '../actions/loginAction';
 
 class Profile extends React.Component {
+
+  componentWillMount(){
+
+    let {getProfile} = this.props
+    getProfile()
+  }
+
 
     render() {
 
@@ -23,14 +30,15 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state)=>{
     return {
-        profile: state.webAppReducer.profile.data.user
+        profile: (state.userReducer.profile.user) ? state.userReducer.profile.user: []
     };
 }
 
 const mapDispatchToProps = (dispatch)=> {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    };
+    return bindActionCreators(
+      {
+        getProfile
+      }, dispatch)
 }
 
 export default connect(

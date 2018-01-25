@@ -1,5 +1,4 @@
-import {SAVE_FUEL_SAVINGS, GET_APPS} from '../constants/actionTypes';
-import {necessaryDataIsProvidedToCalculateSavings, calculateSavings} from '../utils/fuelSavings';
+import {GET_USER_PROFILE} from '../constants/actionTypes';
 import objectAssign from 'object-assign';
 import initialState from './initialState';
 
@@ -9,13 +8,12 @@ import initialState from './initialState';
 // Note that I'm using Object.assign to create a copy of current state
 // and update values on the copy.
 export default function webAppReducer(state = initialState.user, action) {
-  let newState;
 
   switch (action.type) {
-    case GET_APPS:
+    case GET_USER_PROFILE:
       // For this example, just simulating a save by changing date modified.
       // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
-      return objectAssign({}, state, {dateModified: action.dateModified});
+      return {...state, profile: action.payload};
 
     default:
       return state;

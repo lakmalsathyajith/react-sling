@@ -86,36 +86,6 @@ export const appList ={
 ]
 }
 
-const profile = {
-    "status": "success",
-    "data": {
-        "user": {
-            "user_id": "1",
-            "first_name": null,
-            "last_name": "Muthu1",
-            "phone": null,
-            "middle_name": null
-        },
-        "questions": [
-            {
-                "question_id": "1",
-                "answer": "pattu",
-                "question": "What was your childhood nickname?"
-            },
-            {
-                "question_id": "3",
-                "answer": "senthil",
-                "question": "What is the name of your favorite childhood friend?"
-            },
-            {
-                "question_id": "8",
-                "answer": "rc school",
-                "question": "What school did you attend for sixth grade?"
-            }
-        ]
-    }
-}
-
 const logs = {
     "status": "success",
     "logs": [
@@ -3487,8 +3457,10 @@ export default {
   },
   webApp:{
     appList:appList,
-      profile:profile,
       logs : logs
+  },
+  user : {
+    profile:{}
   }
 };
 
