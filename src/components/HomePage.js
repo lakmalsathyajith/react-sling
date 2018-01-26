@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import { Link } from 'react-router-dom';
 import {bindActionCreators} from "redux";
 import {authenticate} from "../actions/loginAction";
-import {FuelSavingsPage} from "./containers/FuelSavingsPage";
 import {connect} from "react-redux";
 
 class HomePage extends  Component{
@@ -28,9 +27,9 @@ class HomePage extends  Component{
   }
 }
 
-const mapStateToProps =(state) => {
+const mapStateToProps = (state)=>{
   return {
-    fuelSavings: state.fuelSavings
+
   };
 }
 
